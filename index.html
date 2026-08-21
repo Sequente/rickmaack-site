@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rick Maack — Technology Executive & NetSuite Advisor</title>
+<meta name="description" content="Rick Maack is a technology executive, NetSuite advisor, and founder of Sequente Cloud — helping mid-market and enterprise organizations modernize operations through ERP, AI, and cloud infrastructure.">
+<meta name="keywords" content="Rick Maack, NetSuite consultant, ERP advisor, technology executive, Sequente Cloud, NetSuite Pennsylvania">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Rick Maack — Technology Executive & NetSuite Advisor">
+<meta property="og:description" content="Founder of Sequente Cloud. NetSuite ERP advisor, AI enablement strategist, and cloud infrastructure architect.">
+<meta property="og:url" content="https://www.rickmaack.com">
+<meta property="og:type" content="website">
+
+<meta name="google-site-verification" content="KjiN36k28oLVufF09RmDxnRlDrUNe6QJiziYgGByDPk">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P3RFTYBKZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P3RFTYBKZD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0C3A6B;
+  --deep: #0D5394;
+  --primary: #62B3E4;
+  --sky: #99CAE9;
+  --gray: #DCE1E9;
+  --pink: #F27C9B;
+  --white: #ffffff;
+  --cream: #f4f7fb;
+  --ink: #0C3A6B;
+  --muted: #6b8cae;
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 68px; display: flex; align-items: center;
+  padding: 0 5vw;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(12,58,107,0.1);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1100px; margin: 0 auto; }
+.nav-name { font-size: 16px; font-weight: 700; color: var(--navy); letter-spacing: -.02em; text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 400; letter-spacing: .02em; transition: color .2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  font-size: 12px; font-weight: 500; color: var(--white);
+  background: var(--navy); padding: 9px 20px;
+  text-decoration: none; letter-spacing: .05em;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--deep); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 68px 5vw 0;
+  gap: 80px;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--primary);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 32px; height: 1.5px; background: var(--primary);
+}
+.hero-h1 {
+  font-size: clamp(44px, 5vw, 76px);
+  font-weight: 700; line-height: 1.06;
+  letter-spacing: -.03em; color: var(--navy);
+  margin-bottom: 24px;
+}
+.hero-h1 .light { font-weight: 300; color: var(--primary); }
+.hero-sub {
+  font-size: 17px; font-weight: 300; line-height: 1.8;
+  color: var(--muted); max-width: 480px; margin-bottom: 40px;
+}
+.hero-sub strong { font-weight: 600; color: var(--deep); }
+.hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--navy); color: var(--white);
+  padding: 13px 28px; font-size: 13px; font-weight: 500;
+  letter-spacing: .06em; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--deep); transform: translateY(-2px); }
+.btn-ghost {
+  color: var(--navy); font-size: 13px; font-weight: 400;
+  text-decoration: none; display: inline-flex; align-items: center;
+  gap: 6px; border-bottom: 1px solid var(--gray); padding-bottom: 2px;
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { color: var(--primary); border-color: var(--primary); }
+
+/* Hero photo */
+.hero-photo-wrap { position: relative; }
+.hero-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--gray);
+  overflow: hidden;
+}
+.hero-photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top;
+  display: block;
+}
+.hero-photo-frame .placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px; background: var(--gray);
+}
+.hero-photo-frame .placeholder span { font-size: 12px; color: var(--muted); text-align: center; max-width: 140px; line-height: 1.6; }
+.hero-accent-bar {
+  position: absolute; bottom: -16px; left: -16px;
+  width: 80px; height: 80px; background: var(--pink);
+  z-index: -1;
+}
+.hero-accent-line {
+  position: absolute; top: -16px; right: -16px;
+  width: 80px; height: 80px;
+  border: 2px solid var(--sky);
+  z-index: -1;
+}
+.hero-tag {
+  position: absolute; bottom: 24px; left: -20px;
+  background: var(--navy); color: var(--white);
+  padding: 12px 18px;
+  font-size: 12px; font-weight: 500; letter-spacing: .04em;
+  white-space: nowrap;
+}
+.hero-tag span { color: var(--sky); }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--navy);
+  padding: 36px 5vw;
+}
+.stats-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(255,255,255,.1);
+}
+.stat {
+  background: var(--navy);
+  padding: 28px 32px;
+  text-align: center;
+}
+.stat-n {
+  font-size: 40px; font-weight: 700; color: var(--white);
+  letter-spacing: -.03em; line-height: 1;
+}
+.stat-n span { color: var(--pink); }
+.stat-l { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 6px; letter-spacing: .04em; font-weight: 400; }
+
+/* ── SECTIONS ── */
+.section { padding: 100px 5vw; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 11px; font-weight: 500; letter-spacing: .15em;
+  color: var(--primary); text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--primary); }
+.section-h2 {
+  font-size: clamp(30px, 3.5vw, 52px); font-weight: 700;
+  letter-spacing: -.025em; color: var(--navy);
+  line-height: 1.1; margin-bottom: 20px;
+}
+.section-h2 .light { font-weight: 300; color: var(--primary); }
+
+/* ── ABOUT ── */
+#about { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start; margin-top: 56px;
+}
+.about-text p {
+  font-size: 16px; line-height: 1.85; color: var(--muted);
+  font-weight: 300; margin-bottom: 20px;
+}
+.about-text p strong { font-weight: 600; color: var(--navy); }
+.about-values { margin-top: 36px; display: flex; flex-direction: column; gap: 0; }
+.value {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 0; border-bottom: 1px solid rgba(12,58,107,.1);
+}
+.value-dot { width: 6px; height: 6px; background: var(--pink); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+.value-text { font-size: 15px; color: var(--navy); font-weight: 500; }
+.value-sub { font-size: 13px; color: var(--muted); font-weight: 300; margin-top: 3px; }
+.about-aside { display: flex; flex-direction: column; gap: 2px; }
+.about-card {
+  background: var(--white); padding: 28px 28px;
+  border-left: 3px solid transparent;
+  transition: border-color .3s;
+}
+.about-card:hover { border-color: var(--primary); }
+.about-card-label { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); margin-bottom: 8px; }
+.about-card-value { font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.5; }
+
+/* ── SEQUENTE CLOUD ── */
+#sequente { background: var(--white); }
+.sequente-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center; margin-top: 56px;
+}
+.sequente-visual {
+  background: var(--navy);
+  padding: 48px 40px;
+  position: relative; overflow: hidden;
+}
+.sequente-visual::before {
+  content: 'SC';
+  position: absolute; bottom: -20px; right: -10px;
+  font-size: 120px; font-weight: 700; color: rgba(255,255,255,.04);
+  letter-spacing: -.05em; line-height: 1;
+}
+.sq-tagline { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin-bottom: 20px; font-weight: 500; }
+.sq-name { font-size: 32px; font-weight: 700; color: var(--white); letter-spacing: -.02em; margin-bottom: 16px; line-height: 1.1; }
+.sq-desc { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.6); font-weight: 300; margin-bottom: 32px; }
+.sq-services { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.sq-service {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; color: rgba(255,255,255,.8); font-weight: 400;
+}
+.sq-service::before { content: '→'; color: var(--pink); font-size: 12px; }
+.sq-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--sky);
+  text-decoration: none; border-bottom: 1px solid var(--sky);
+  padding-bottom: 2px; letter-spacing: .04em;
+  transition: opacity .2s;
+}
+.sq-link:hover { opacity: .7; }
+.sequente-content p {
+  font-size: 16px; line-height: 1.85; color: var(--muted);
+  font-weight: 300; margin-bottom: 20px;
+}
+.sequente-content p strong { font-weight: 600; color: var(--navy); }
+.sq-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 32px; }
+.sq-pillar { background: var(--cream); padding: 20px 20px; }
+.sq-pillar-n { font-size: 28px; font-weight: 700; color: var(--gray); letter-spacing: -.02em; line-height: 1; margin-bottom: 8px; }
+.sq-pillar-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.sq-pillar-desc { font-size: 12px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+/* ── CAREER ── */
+#career { background: var(--cream); }
+.career-list { margin-top: 56px; display: flex; flex-direction: column; gap: 0; }
+.career-item {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 40px; padding: 36px 0;
+  border-bottom: 1px solid rgba(12,58,107,.1);
+  transition: padding-left .3s;
+}
+.career-item:hover { padding-left: 8px; }
+.career-period { font-size: 12px; font-weight: 500; color: var(--primary); letter-spacing: .04em; padding-top: 4px; }
+.career-role { font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; margin-bottom: 4px; }
+.career-company { font-size: 13px; font-weight: 500; color: var(--muted); margin-bottom: 12px; letter-spacing: .02em; }
+.career-desc { font-size: 14px; line-height: 1.75; color: var(--muted); font-weight: 300; }
+.career-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.career-tag { font-size: 11px; font-weight: 500; padding: 4px 10px; background: var(--white); color: var(--deep); letter-spacing: .04em; border: 1px solid var(--gray); }
+
+/* ── CONTACT ── */
+#contact { background: var(--navy); }
+#contact .section-label { color: var(--sky); }
+#contact .section-label::before { background: var(--sky); }
+#contact .section-h2 { color: var(--white); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-top: 56px; align-items: start;
+}
+.contact-links { display: flex; flex-direction: column; gap: 2px; }
+.contact-link {
+  display: flex; align-items: center; gap: 20px;
+  padding: 24px 28px; background: rgba(255,255,255,.05);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: background .2s, border-color .2s;
+}
+.contact-link:hover { background: rgba(255,255,255,.1); border-color: var(--primary); }
+.contact-link-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.08); flex-shrink: 0; }
+.contact-link-label { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 4px; }
+.contact-link-value { font-size: 15px; font-weight: 500; color: var(--white); }
+.contact-right p { font-size: 16px; line-height: 1.85; color: rgba(255,255,255,.6); font-weight: 300; margin-bottom: 28px; }
+.contact-sequente {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  padding: 28px 28px; margin-top: 8px;
+}
+.contact-sequente p { font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 12px; font-weight: 300; line-height: 1.7; }
+.contact-sequente h4 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
+.contact-sequente a {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--sky);
+  text-decoration: none; border-bottom: 1px solid var(--sky);
+  padding-bottom: 2px; transition: opacity .2s;
+}
+.contact-sequente a:hover { opacity: .7; }
+
+/* ── FOOTER ── */
+footer {
+  background: #071f3a; padding: 28px 5vw;
+  display: flex; align-items: center; justify-content: center;
+}
+.footer-inner { max-width: 1100px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 12px; color: rgba(255,255,255,.3); }
+footer a { color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
+footer a:hover { color: rgba(255,255,255,.6); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.25,.8,.25,1), transform .7s cubic-bezier(.25,.8,.25,1); }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; padding-top: 108px; gap: 48px; }
+  .hero-photo-wrap { order: -1; max-width: 320px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .about-grid, .sequente-layout, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .career-item { grid-template-columns: 1fr; gap: 8px; }
+  .sq-pillars { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rick Maack",
+  "jobTitle": "Technology Executive and NetSuite Advisor",
+  "url": "https://www.rickmaack.com",
+  "worksFor": {"@type": "Organization", "name": "Sequente Cloud", "url": "https://www.sequentecloud.com"},
+  "address": {"@type": "PostalAddress", "addressLocality": "Camp Hill", "addressRegion": "PA", "addressCountry": "US"},
+  "sameAs": [
+    "https://www.linkedin.com/in/rickmaack/",
+    "https://www.sequentecloud.com"
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Rick Maack</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#sequente">Sequente Cloud</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="/blog/">Insights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://www.sequentecloud.com" target="_blank" class="nav-cta">Sequente Cloud ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div>
+    <p class="hero-eyebrow reveal">Technology Executive · Advisor · Founder</p>
+    <h1 class="hero-h1 reveal">Rick<br>Maack.<br><span class="light">Begin with<br>the end in mind.</span></h1>
+    <p class="hero-sub reveal">
+      <strong>NetSuite ERP advisor, AI enablement strategist, and cloud infrastructure architect.</strong> Founder of Sequente Cloud — helping mid-market and enterprise organizations modernize operations and scale with confidence.
+    </p>
+    <div class="hero-actions reveal">
+      <a href="https://www.sequentecloud.com" target="_blank" class="btn-primary">Visit Sequente Cloud ↗</a>
+      <a href="#contact" class="btn-ghost">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-photo-wrap reveal">
+    <div class="hero-photo-frame" id="hero-photo">
+      <div class="placeholder">
+        <svg width="48" height="48" fill="none" viewBox="0 0 48 48" style="opacity:.3"><circle cx="24" cy="18" r="10" stroke="#0C3A6B" stroke-width="2"/><path d="M6 42c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke="#0C3A6B" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Add rick.jpg to show your photo here</span>
+      </div>
+    </div>
+    <div class="hero-accent-bar"></div>
+    <div class="hero-accent-line"></div>
+    <div class="hero-tag">Founder, <span>Sequente Cloud</span></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-n">15<span>+</span></div>
+      <div class="stat-l">Years Enterprise ERP</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-n">50<span>+</span></div>
+      <div class="stat-l">NetSuite Implementations</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-n">3<span>x</span></div>
+      <div class="stat-l">Average ROI Delivered</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-n">98<span>%</span></div>
+      <div class="stat-l">Client Retention Rate</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <p class="section-label reveal">About</p>
+    <h2 class="section-h2 reveal">Senior advisor.<br><span class="light">Practical operator.</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a <strong>technology executive and ERP consultant</strong> with over 15 years of experience leading complex enterprise implementations across manufacturing, distribution, SaaS, and retail. I founded <strong>Sequente Cloud</strong> to bring senior-level expertise directly to organizations that need real results — not layers of hand-offs.</p>
+        <p>My work sits at the intersection of business strategy and technology execution. I've managed P&L on major implementations, led cross-functional teams, and worked alongside CFOs, COOs, and supply chain leaders to design and deploy systems that actually move the needle.</p>
+        <p>What sets my approach apart is the ability to communicate across both technical and executive stakeholders — translating complex business processes into practical technology solutions that teams actually adopt.</p>
+        <div class="about-values">
+          <div class="value">
+            <div class="value-dot"></div>
+            <div>
+              <div class="value-text">Begin with the end in mind</div>
+              <div class="value-sub">Every engagement starts with a clear picture of the outcome</div>
+            </div>
+          </div>
+          <div class="value">
+            <div class="value-dot"></div>
+            <div>
+              <div class="value-text">Senior-led, always</div>
+              <div class="value-sub">No hand-offs — I lead every engagement personally</div>
+            </div>
+          </div>
+          <div class="value">
+            <div class="value-dot"></div>
+            <div>
+              <div class="value-text">Practical over theoretical</div>
+              <div class="value-sub">Solutions your team can use on day one</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-aside reveal">
+        <div class="about-card">
+          <div class="about-card-label">Based In</div>
+          <div class="about-card-value">Camp Hill, Pennsylvania</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-label">Specialty</div>
+          <div class="about-card-value">NetSuite ERP · AI Enablement · Cloud Infrastructure</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-label">Industries</div>
+          <div class="about-card-value">Manufacturing · Distribution · SaaS · Retail</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-label">Integrations</div>
+          <div class="about-card-value">Salesforce · Coupa · Concur · EDI · RFSmart · NextService</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-label">Connect</div>
+          <div class="about-card-value"><a href="https://www.linkedin.com/in/rickmaack/" target="_blank" style="color:var(--deep);text-decoration:none;font-weight:500;">linkedin.com/in/rickmaack ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEQUENTE CLOUD -->
+<section class="section" id="sequente">
+  <div class="section-inner">
+    <p class="section-label reveal">My Practice</p>
+    <h2 class="section-h2 reveal">Sequente <span class="light">Cloud.</span></h2>
+    <div class="sequente-layout">
+      <div class="sequente-visual reveal">
+        <p class="sq-tagline">Enterprise Consulting Practice</p>
+        <h3 class="sq-name">Sequente Cloud</h3>
+        <p class="sq-desc">I founded Sequente Cloud to deliver senior-led NetSuite consulting, AI enablement, and cloud infrastructure services to mid-market and enterprise organizations.</p>
+        <div class="sq-services">
+          <div class="sq-service">NetSuite ERP Implementation & Optimization</div>
+          <div class="sq-service">AI Enablement & Intelligent Automation</div>
+          <div class="sq-service">Cloud Infrastructure & DevOps</div>
+          <div class="sq-service">Supply Chain & EDI Integration</div>
+          <div class="sq-service">Demand Forecasting & Analytics</div>
+        </div>
+        <a href="https://www.sequentecloud.com" target="_blank" class="sq-link">Visit sequentecloud.com ↗</a>
+      </div>
+      <div class="sequente-content reveal">
+        <p>Sequente Cloud is my consulting practice — built on the belief that <strong>enterprise technology should actually work for the people using it.</strong></p>
+        <p>We work with manufacturing, distribution, SaaS, and retail organizations to implement and optimize NetSuite ERP, deploy AI-driven operational improvements, and build the cloud infrastructure that lets everything run faster and smarter.</p>
+        <p>Every engagement is <strong>senior-led from day one</strong> — no bait-and-switch, no junior consultants learning on your dime.</p>
+        <div class="sq-pillars">
+          <div class="sq-pillar">
+            <div class="sq-pillar-n">01</div>
+            <div class="sq-pillar-title">NetSuite</div>
+            <div class="sq-pillar-desc">Full lifecycle ERP consulting — implementation to optimization</div>
+          </div>
+          <div class="sq-pillar">
+            <div class="sq-pillar-n">02</div>
+            <div class="sq-pillar-title">AI</div>
+            <div class="sq-pillar-desc">Practical AI deployments that generate measurable results</div>
+          </div>
+          <div class="sq-pillar">
+            <div class="sq-pillar-n">03</div>
+            <div class="sq-pillar-title">Cloud</div>
+            <div class="sq-pillar-desc">Scalable, secure infrastructure built for growth</div>
+          </div>
+          <div class="sq-pillar">
+            <div class="sq-pillar-n">04</div>
+            <div class="sq-pillar-title">Integration</div>
+            <div class="sq-pillar-desc">EDI, Salesforce, Coupa, and beyond</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="section" id="career">
+  <div class="section-inner">
+    <p class="section-label reveal">Career</p>
+    <h2 class="section-h2 reveal">15+ years of <span class="light">enterprise experience.</span></h2>
+    <div class="career-list">
+      <div class="career-item reveal">
+        <div class="career-period">2020 — Present</div>
+        <div>
+          <div class="career-role">Founder & Principal Consultant</div>
+          <div class="career-company">Sequente Cloud · Camp Hill, PA</div>
+          <div class="career-desc">Founded and built a focused NetSuite consulting practice delivering ERP transformations, AI enablement, and cloud infrastructure across manufacturing, distribution, SaaS, and retail. Senior-led engagements with measurable business outcomes.</div>
+          <div class="career-tags">
+            <span class="career-tag">NetSuite</span>
+            <span class="career-tag">AI Enablement</span>
+            <span class="career-tag">Cloud</span>
+            <span class="career-tag">P&L Management</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-period">Prior Experience</div>
+        <div>
+          <div class="career-role">Senior NetSuite Consultant & Delivery Manager</div>
+          <div class="career-company">Enterprise ERP Consulting</div>
+          <div class="career-desc">Led large-scale NetSuite implementations across complex multi-entity organizations. Managed cross-functional teams, P&L accountability, and stakeholder relationships at the C-suite level. Specialized in supply chain, manufacturing, and financial consolidation.</div>
+          <div class="career-tags">
+            <span class="career-tag">Implementation</span>
+            <span class="career-tag">Supply Chain</span>
+            <span class="career-tag">Manufacturing</span>
+            <span class="career-tag">EDI</span>
+            <span class="career-tag">Salesforce</span>
+            <span class="career-tag">WMS</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item reveal">
+        <div class="career-period">Expertise</div>
+        <div>
+          <div class="career-role">Technical Specializations</div>
+          <div class="career-company">NetSuite · AI · Cloud Infrastructure</div>
+          <div class="career-desc">Deep technical expertise across the full NetSuite platform including SuiteScript, SuiteFlow, SuiteAnalytics, and third-party integrations. AI pipeline development, demand forecasting models, and cloud architecture on AWS and Azure.</div>
+          <div class="career-tags">
+            <span class="career-tag">SuiteScript</span>
+            <span class="career-tag">SuiteFlow</span>
+            <span class="career-tag">Zone Billing</span>
+            <span class="career-tag">NextService</span>
+            <span class="career-tag">RFSmart</span>
+            <span class="career-tag">Coupa</span>
+            <span class="career-tag">Concur</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <p class="section-label reveal">Contact</p>
+    <h2 class="section-h2 reveal">Let's <span class="light">connect.</span></h2>
+    <div class="contact-grid">
+      <div class="contact-links reveal">
+        <a href="mailto:info@sequentecloud.com" class="contact-link">
+          <div class="contact-link-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#99CAE9" stroke-width="1.5"/><path d="M22 6l-10 7L2 6" stroke="#99CAE9" stroke-width="1.5"/></svg>
+          </div>
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">info@sequentecloud.com</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/rickmaack/" target="_blank" class="contact-link">
+          <div class="contact-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#99CAE9"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">linkedin.com/in/rickmaack</div>
+          </div>
+        </a>
+        <a href="https://calendly.com/rick-maack-sequentecloud/30min" target="_blank" class="contact-link">
+          <div class="contact-link-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#99CAE9" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#99CAE9" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="contact-link-label">Book a Call</div>
+            <div class="contact-link-value">Schedule 30 minutes</div>
+          </div>
+        </a>
+      </div>
+      <div class="reveal">
+        <p>I'm always open to conversations about NetSuite strategy, AI adoption, enterprise technology challenges, or new consulting opportunities. The best way to reach me is directly by email or by booking a call.</p>
+        <div class="contact-sequente">
+          <h4>Looking for enterprise consulting?</h4>
+          <p>For NetSuite implementations, AI enablement projects, or cloud infrastructure work, visit Sequente Cloud — my full-service consulting practice.</p>
+          <a href="https://www.sequentecloud.com" target="_blank">Visit sequentecloud.com ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Rick Maack. All rights reserved.</p>
+    <p><a href="https://www.sequentecloud.com" target="_blank">sequentecloud.com</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/rickmaack/" target="_blank">LinkedIn</a> &nbsp;·&nbsp; <a href="mailto:info@sequentecloud.com">Email</a></p>
+  </div>
+</footer>
+
+<script>
+  // Auto-load headshot
+  const img = new Image();
+  img.onload = function() {
+    const slot = document.getElementById('hero-photo');
+    if (slot) {
+      slot.innerHTML = '<img src="rick.jpg" alt="Rick Maack">';
+    }
+  };
+  img.src = 'rick.jpg';
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i % 3) * 0.1 + 's';
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

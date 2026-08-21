@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Rick Maack on NetSuite, ERP, and AI</title>
+<meta name="description" content="Practical writing by Rick Maack on NetSuite implementations, ERP delivery, AI enablement, and cloud operations for mid-market and enterprise organizations.">
+<link rel="canonical" href="https://www.rickmaack.com/blog/">
+<meta property="og:title" content="Insights — Rick Maack on NetSuite, ERP, and AI">
+<meta property="og:description" content="Practical writing by Rick Maack on NetSuite implementations, ERP delivery, AI enablement, and cloud operations for mid-market and enterprise organizations.">
+<meta property="og:url" content="https://www.rickmaack.com/blog/">
+<meta property="og:type" content="article">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P3RFTYBKZD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P3RFTYBKZD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Insights by Rick Maack",
+  "url": "https://www.rickmaack.com/blog/",
+  "author": {
+    "@type": "Person",
+    "name": "Rick Maack",
+    "url": "https://www.rickmaack.com",
+    "sameAs": ["https://www.linkedin.com/in/rickmaack/", "https://www.sequentecloud.com"]
+  }
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0C3A6B;
+  --deep: #0D5394;
+  --primary: #62B3E4;
+  --sky: #99CAE9;
+  --gray: #DCE1E9;
+  --pink: #F27C9B;
+  --white: #ffffff;
+  --cream: #f4f7fb;
+  --ink: #0C3A6B;
+  --muted: #6b8cae;
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 68px; display: flex; align-items: center;
+  padding: 0 5vw;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(12,58,107,0.1);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1100px; margin: 0 auto; }
+.nav-name { font-size: 16px; font-weight: 700; color: var(--navy); letter-spacing: -.02em; text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 400; letter-spacing: .02em; transition: color .2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  font-size: 12px; font-weight: 500; color: var(--white);
+  background: var(--navy); padding: 9px 20px;
+  text-decoration: none; letter-spacing: .05em;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--deep); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 68px 5vw 0;
+  gap: 80px;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--primary);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 32px; height: 1.5px; background: var(--primary);
+}
+.hero-h1 {
+  font-size: clamp(44px, 5vw, 76px);
+  font-weight: 700; line-height: 1.06;
+  letter-spacing: -.03em; color: var(--navy);
+  margin-bottom: 24px;
+}
+.hero-h1 .light { font-weight: 300; color: var(--primary); }
+.hero-sub {
+  font-size: 17px; font-weight: 300; line-height: 1.8;
+  color: var(--muted); max-width: 480px; margin-bottom: 40px;
+}
+.hero-sub strong { font-weight: 600; color: var(--deep); }
+.hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--navy); color: var(--white);
+  padding: 13px 28px; font-size: 13px; font-weight: 500;
+  letter-spacing: .06em; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--deep); transform: translateY(-2px); }
+.btn-ghost {
+  color: var(--navy); font-size: 13px; font-weight: 400;
+  text-decoration: none; display: inline-flex; align-items: center;
+  gap: 6px; border-bottom: 1px solid var(--gray); padding-bottom: 2px;
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { color: var(--primary); border-color: var(--primary); }
+
+/* Hero photo */
+.hero-photo-wrap { position: relative; }
+.hero-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--gray);
+  overflow: hidden;
+}
+.hero-photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top;
+  display: block;
+}
+.hero-photo-frame .placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px; background: var(--gray);
+}
+.hero-photo-frame .placeholder span { font-size: 12px; color: var(--muted); text-align: center; max-width: 140px; line-height: 1.6; }
+.hero-accent-bar {
+  position: absolute; bottom: -16px; left: -16px;
+  width: 80px; height: 80px; background: var(--pink);
+  z-index: -1;
+}
+.hero-accent-line {
+  position: absolute; top: -16px; right: -16px;
+  width: 80px; height: 80px;
+  border: 2px solid var(--sky);
+  z-index: -1;
+}
+.hero-tag {
+  position: absolute; bottom: 24px; left: -20px;
+  background: var(--navy); color: var(--white);
+  padding: 12px 18px;
+  font-size: 12px; font-weight: 500; letter-spacing: .04em;
+  white-space: nowrap;
+}
+.hero-tag span { color: var(--sky); }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--navy);
+  padding: 36px 5vw;
+}
+.stats-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(255,255,255,.1);
+}
+.stat {
+  background: var(--navy);
+  padding: 28px 32px;
+  text-align: center;
+}
+.stat-n {
+  font-size: 40px; font-weight: 700; color: var(--white);
+  letter-spacing: -.03em; line-height: 1;
+}
+.stat-n span { color: var(--pink); }
+.stat-l { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 6px; letter-spacing: .04em; font-weight: 400; }
+
+/* ── SECTIONS ── */
+.section { padding: 100px 5vw; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 11px; font-weight: 500; letter-spacing: .15em;
+  color: var(--primary); text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--primary); }
+.section-h2 {
+  font-size: clamp(30px, 3.5vw, 52px); font-weight: 700;
+  letter-spacing: -.025em; color: var(--navy);
+  line-height: 1.1; margin-bottom: 20px;
+}
+.section-h2 .light { font-weight: 300; color: var(--primary); }
+
+/* ── ABOUT ── */
+#about { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start; margin-top: 56px;
+}
+.about-text p {
+  font-size: 16px; line-height: 1.85; color: var(--muted);
+  font-weight: 300; margin-bottom: 20px;
+}
+.about-text p strong { font-weight: 600; color: var(--navy); }
+.about-values { margin-top: 36px; display: flex; flex-direction: column; gap: 0; }
+.value {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 0; border-bottom: 1px solid rgba(12,58,107,.1);
+}
+.value-dot { width: 6px; height: 6px; background: var(--pink); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+.value-text { font-size: 15px; color: var(--navy); font-weight: 500; }
+.value-sub { font-size: 13px; color: var(--muted); font-weight: 300; margin-top: 3px; }
+.about-aside { display: flex; flex-direction: column; gap: 2px; }
+.about-card {
+  background: var(--white); padding: 28px 28px;
+  border-left: 3px solid transparent;
+  transition: border-color .3s;
+}
+.about-card:hover { border-color: var(--primary); }
+.about-card-label { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); margin-bottom: 8px; }
+.about-card-value { font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.5; }
+
+/* ── SEQUENTE CLOUD ── */
+#sequente { background: var(--white); }
+.sequente-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center; margin-top: 56px;
+}
+.sequente-visual {
+  background: var(--navy);
+  padding: 48px 40px;
+  position: relative; overflow: hidden;
+}
+.sequente-visual::before {
+  content: 'SC';
+  position: absolute; bottom: -20px; right: -10px;
+  font-size: 120px; font-weight: 700; color: rgba(255,255,255,.04);
+  letter-spacing: -.05em; line-height: 1;
+}
+.sq-tagline { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin-bottom: 20px; font-weight: 500; }
+.sq-name { font-size: 32px; font-weight: 700; color: var(--white); letter-spacing: -.02em; margin-bottom: 16px; line-height: 1.1; }
+.sq-desc { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.6); font-weight: 300; margin-bottom: 32px; }
+.sq-services { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.sq-service {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; color: rgba(255,255,255,.8); font-weight: 400;
+}
+.sq-service::before { content: '→'; color: var(--pink); font-size: 12px; }
+.sq-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--sky);
+  text-decoration: none; border-bottom: 1px solid var(--sky);
+  padding-bottom: 2px; letter-spacing: .04em;
+  transition: opacity .2s;
+}
+.sq-link:hover { opacity: .7; }
+.sequente-content p {
+  font-size: 16px; line-height: 1.85; color: var(--muted);
+  font-weight: 300; margin-bottom: 20px;
+}
+.sequente-content p strong { font-weight: 600; color: var(--navy); }
+.sq-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 32px; }
+.sq-pillar { background: var(--cream); padding: 20px 20px; }
+.sq-pillar-n { font-size: 28px; font-weight: 700; color: var(--gray); letter-spacing: -.02em; line-height: 1; margin-bottom: 8px; }
+.sq-pillar-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.sq-pillar-desc { font-size: 12px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+/* ── CAREER ── */
+#career { background: var(--cream); }
+.career-list { margin-top: 56px; display: flex; flex-direction: column; gap: 0; }
+.career-item {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 40px; padding: 36px 0;
+  border-bottom: 1px solid rgba(12,58,107,.1);
+  transition: padding-left .3s;
+}
+.career-item:hover { padding-left: 8px; }
+.career-period { font-size: 12px; font-weight: 500; color: var(--primary); letter-spacing: .04em; padding-top: 4px; }
+.career-role { font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; margin-bottom: 4px; }
+.career-company { font-size: 13px; font-weight: 500; color: var(--muted); margin-bottom: 12px; letter-spacing: .02em; }
+.career-desc { font-size: 14px; line-height: 1.75; color: var(--muted); font-weight: 300; }
+.career-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.career-tag { font-size: 11px; font-weight: 500; padding: 4px 10px; background: var(--white); color: var(--deep); letter-spacing: .04em; border: 1px solid var(--gray); }
+
+/* ── CONTACT ── */
+#contact { background: var(--navy); }
+#contact .section-label { color: var(--sky); }
+#contact .section-label::before { background: var(--sky); }
+#contact .section-h2 { color: var(--white); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-top: 56px; align-items: start;
+}
+.contact-links { display: flex; flex-direction: column; gap: 2px; }
+.contact-link {
+  display: flex; align-items: center; gap: 20px;
+  padding: 24px 28px; background: rgba(255,255,255,.05);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: background .2s, border-color .2s;
+}
+.contact-link:hover { background: rgba(255,255,255,.1); border-color: var(--primary); }
+.contact-link-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.08); flex-shrink: 0; }
+.contact-link-label { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 4px; }
+.contact-link-value { font-size: 15px; font-weight: 500; color: var(--white); }
+.contact-right p { font-size: 16px; line-height: 1.85; color: rgba(255,255,255,.6); font-weight: 300; margin-bottom: 28px; }
+.contact-sequente {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  padding: 28px 28px; margin-top: 8px;
+}
+.contact-sequente p { font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 12px; font-weight: 300; line-height: 1.7; }
+.contact-sequente h4 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
+.contact-sequente a {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; color: var(--sky);
+  text-decoration: none; border-bottom: 1px solid var(--sky);
+  padding-bottom: 2px; transition: opacity .2s;
+}
+.contact-sequente a:hover { opacity: .7; }
+
+/* ── FOOTER ── */
+footer {
+  background: #071f3a; padding: 28px 5vw;
+  display: flex; align-items: center; justify-content: center;
+}
+.footer-inner { max-width: 1100px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 12px; color: rgba(255,255,255,.3); }
+footer a { color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
+footer a:hover { color: rgba(255,255,255,.6); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.25,.8,.25,1), transform .7s cubic-bezier(.25,.8,.25,1); }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; padding-top: 108px; gap: 48px; }
+  .hero-photo-wrap { order: -1; max-width: 320px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .about-grid, .sequente-layout, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .career-item { grid-template-columns: 1fr; gap: 8px; }
+  .sq-pillars { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+
+/* ── BLOG ── */
+.blog-wrap { padding: 148px 5vw 100px; }
+.blog-inner { max-width: 1100px; margin: 0 auto; }
+.article-inner { max-width: 720px; margin: 0 auto; }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin-top: 48px; }
+.blog-card {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid var(--gray); border-radius: 10px; overflow: hidden;
+  background: var(--white); transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.blog-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(12,58,107,.10); border-color: var(--sky); }
+.blog-card-top { height: 6px; background: linear-gradient(90deg, var(--primary), var(--deep)); }
+.blog-card-body { padding: 26px 26px 30px; }
+.blog-cat {
+  display: inline-block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 700; color: var(--deep); background: var(--cream);
+  padding: 5px 10px; border-radius: 3px; margin-bottom: 14px;
+}
+.blog-card-title { font-size: 21px; font-weight: 700; line-height: 1.3; letter-spacing: -.01em; margin-bottom: 10px; }
+.blog-card-excerpt { font-size: 14px; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+.blog-meta { font-size: 12px; color: var(--muted); letter-spacing: .02em; }
+.blog-read { font-size: 13px; font-weight: 500; color: var(--deep); margin-top: 16px; }
+
+.article-head { margin-bottom: 44px; }
+.article-title { font-size: 44px; font-weight: 700; line-height: 1.12; letter-spacing: -.03em; margin: 16px 0 18px; }
+.article-byline { font-size: 13px; color: var(--muted); padding-bottom: 26px; border-bottom: 1px solid var(--gray); }
+.article-byline strong { color: var(--navy); font-weight: 500; }
+.article-body { font-size: 17px; line-height: 1.75; }
+.article-body p { margin-bottom: 24px; }
+.article-body h2 { font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin: 44px 0 16px; }
+.article-body ul { margin: 0 0 24px 20px; }
+.article-body li { margin-bottom: 10px; }
+.article-body strong { font-weight: 700; }
+.article-cta {
+  margin-top: 56px; padding: 34px; background: var(--cream);
+  border-radius: 10px; border-left: 3px solid var(--primary);
+}
+.article-cta p { font-size: 15px; line-height: 1.7; margin-bottom: 18px; }
+.back-link { font-size: 13px; color: var(--muted); text-decoration: none; }
+.back-link:hover { color: var(--navy); }
+@media (max-width: 760px) {
+  .article-title { font-size: 32px; }
+  .blog-wrap { padding: 120px 6vw 70px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-name">Rick Maack</a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#sequente">Sequente Cloud</a></li>
+      <li><a href="/#career">Career</a></li>
+      <li><a href="/blog/">Insights</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a href="https://www.sequentecloud.com" target="_blank" class="nav-cta">Sequente Cloud &#8599;</a>
+  </div>
+</nav>
+
+<div class="blog-wrap">
+  <div class="blog-inner">
+    <p class="section-label">Insights</p>
+    <h1 class="section-h2">Notes from the field on <span class="light">ERP, AI, and operations.</span></h1>
+    <p class="blog-card-excerpt" style="max-width:620px;font-size:16px;margin-top:14px">
+      Practical thinking for CFOs, COOs, and IT leaders running real systems. Written by Rick Maack.
+    </p>
+    <div class="blog-grid">
+      <a class="blog-card" href="/blog/erp-implementation-recovery/">
+        <div class="blog-card-top"></div>
+        <div class="blog-card-body">
+          <span class="blog-cat">ERP Delivery</span>
+          <div class="blog-card-title">When an ERP Implementation Goes Sideways: What Recovery Actually Takes</div>
+          <div class="blog-card-excerpt">Troubled ERP projects rarely fail for the reasons stated in the status report. Here is what recovery actually involves — and why the first move is almost never technical.</div>
+          <div class="blog-meta">August 17, 2026 &nbsp;&middot;&nbsp; 6 min read &nbsp;&middot;&nbsp; Rick Maack</div>
+          <div class="blog-read">Read article &rarr;</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Rick Maack. All rights reserved.</p>
+    <p><a href="https://www.sequentecloud.com" target="_blank">sequentecloud.com</a> &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/rickmaack/" target="_blank">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="mailto:info@sequentecloud.com">Email</a></p>
+  </div>
+</footer>
+</body>
+</html>
